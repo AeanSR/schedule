@@ -2,7 +2,11 @@
 #define SCHEDULE_H
 
 #include <QtWidgets/QMainWindow>
+#ifdef Q_OS_ANDROID
+#include "ui_schedule_mobile.h"
+#else
 #include "ui_schedule.h"
+#endif
 #include <qlocale.h>
 
 
@@ -29,7 +33,7 @@ struct week_t{
 			weeks[i] = 0;
 		}
 	}
-	week_t& operator+(week_t& rhs){
+	week_t operator+(week_t rhs){
 		week_t merged;
 		for(int i = 0; i < 32; i++){
 			merged.weeks[i] = weeks[i] || rhs.weeks[i];

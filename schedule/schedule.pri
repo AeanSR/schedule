@@ -10,5 +10,5 @@ message("You are running qmake on a generated .pro file. This may not work!")
 HEADERS += ./schedule.h
 SOURCES += ./main.cpp \
     ./schedule.cpp
-FORMS += ./schedule.ui
+FORMS += ./schedule_mobile.ui
 RESOURCES += schedule.qrc

@@ -61,9 +61,15 @@
     <CustomBuild Include="schedule.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="schedule_mobile.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_schedule.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_schedule_mobile.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

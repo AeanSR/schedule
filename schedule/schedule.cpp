@@ -1,31 +1,20 @@
-#include "schedule.h"
+ï»¿#include "schedule.h"
 
-#define Ñ§ÆÚ¿ªÊ¼ 2015,9,7
-
-#define ÖÜÒ» 1
-#define ÖÜ¶ş 2
-#define ÖÜÈı 3
-#define ÖÜËÄ 4
-#define ÖÜÎå 5
-#define ÖÜÁù 6
-#define ÖÜÈÕ 7
-#define µÚ(d1) ,d1,
-#define ½Úµ½µÚ(d2) d2
-#define ½Ú
+#define TERM_BEGIN 2015,9,7
 
 std::vector<course_t> course_list = {
-	course_t("¼ÆËã»úÌåÏµ½á¹¹",			{course_time_t("½Ì1-107", ÖÜÒ» µÚ(9)½Úµ½µÚ(11)½Ú, week_t(2,20))} ),
-	course_t("ÊıÀíÂß¼­Óë³ÌĞòÀíÂÛ",		{course_time_t("½Ì1-113", ÖÜ¶ş µÚ(5)½Úµ½µÚ(7)½Ú,  week_t(2,20))} ),
-	course_t("¼ÆËã»úËã·¨Éè¼ÆÓë·ÖÎö",		{course_time_t("½Ì1-101", ÖÜÎå µÚ(2)½Úµ½µÚ(4)½Ú,  week_t(2,20))} ),
-	course_t("Ä£Ê½Ê¶±ğÓë»úÆ÷Ñ§Ï°",		{course_time_t("½Ì1-107", ÖÜÒ» µÚ(5)½Úµ½µÚ(7)½Ú,  week_t(2,20))} ),
-	course_t("VLSI²âÊÔÓë¿É²âÊÔĞÔÉè¼Æ",	{course_time_t("½Ì1-109", ÖÜ¶ş µÚ(9)½Úµ½µÚ(11)½Ú, week_t(2,16))}	),
-	course_t("Ëæ»ú¹ı³Ì",					{course_time_t("½Ì1-109", ÖÜÈı µÚ(5)½Úµ½µÚ(7)½Ú,  week_t(2,17))} ),
-	course_t("µç×ÓÁìÓòÑ§¿ÆÓë¼¼ÊõÌ¬ÊÆ·ÖÎö",{course_time_t("L-145",   ÖÜÎå µÚ(5)½Úµ½µÚ(7)½Ú,  week_t(2,15))} ),
-	course_t("¾ö²ß·ÖÎö",					{course_time_t("½Ì1-405", ÖÜ¶ş µÚ(3)½Úµ½µÚ(4)½Ú,  week_t(2,15)),
-										 course_time_t("½Ì1-405", ÖÜËÄ µÚ(3)½Úµ½µÚ(4)½Ú,  week_t(2,15))} ),
-	course_t("²©ŞÄÂÛ",					{course_time_t("½Ì1-313", ÖÜ¶ş µÚ(1)½Úµ½µÚ(2)½Ú,  week_t(2,14)),
-										 course_time_t("½Ì1-313", ÖÜËÄ µÚ(1)½Úµ½µÚ(2)½Ú,  week_t(2,14))} ),
-	course_t("×ÔÈ»±çÖ¤·¨¸ÅÂÛ",			{course_time_t("½Ì1-101", ÖÜÈı µÚ(9)½Úµ½µÚ(11)½Ú, week_t(6) + week_t(7,16))} ), // week_t is concatenated by '+'.
+	course_t("è®¡ç®—æœºä½“ç³»ç»“æ„",			{course_time_t("æ•™1-107", 1, 9,11, week_t(2,20))} ),
+	course_t("æ•°ç†é€»è¾‘ä¸ç¨‹åºç†è®º",		{course_time_t("æ•™1-113", 2, 5,7,  week_t(2,20))} ),
+	course_t("è®¡ç®—æœºç®—æ³•è®¾è®¡ä¸åˆ†æ",		{course_time_t("æ•™1-101", 5, 2,4,  week_t(2,20))} ),
+	course_t("æ¨¡å¼è¯†åˆ«ä¸æœºå™¨å­¦ä¹ ",		{course_time_t("æ•™2-201", 1, 5,7,  week_t(2,20))} ),
+	course_t("VLSIæµ‹è¯•ä¸å¯æµ‹è¯•æ€§è®¾è®¡",	{course_time_t("æ•™1-109", 2, 9,11, week_t(2,16))}	),
+	course_t("éšæœºè¿‡ç¨‹",					{course_time_t("æ•™1-109", 3, 5,7,  week_t(2,17))} ),
+	course_t("å½¢å¼è¯­è¨€ä¸è‡ªåŠ¨æœºç†è®º",		{course_time_t("æ•™1-113", 5, 5,7,  week_t(2,17))} ),
+	course_t("å†³ç­–åˆ†æ",					{course_time_t("æ•™1-405", 2, 3,4,  week_t(2,15)),
+										 course_time_t("æ•™1-405", 4, 3,4,  week_t(2,15))} ),
+	course_t("åšå¼ˆè®º",					{course_time_t("æ•™1-114", 2, 1,2,  week_t(2,14)),
+										 course_time_t("æ•™1-114", 4, 1,2,  week_t(2,14))} ),
+	course_t("è‡ªç„¶è¾©è¯æ³•æ¦‚è®º",			{course_time_t("æ•™1-101", 3, 9,11, week_t(6) + week_t(7,16))} ), // week_t is concatenated by '+'.
 };
 
 schedule::schedule(QWidget *parent)
@@ -45,10 +34,14 @@ schedule::schedule(QWidget *parent)
 	lbls[10] = ui.lbl10;
 	lbls[11] = ui.lbl11;
 	refresh();
+#ifdef Q_OS_ANDROID
+    //ui.lbl1->setText( QString::number(ui.verticalLayout_2->geometry().width()) );s
+#endif
+
 }
 
 void schedule::refresh(){
-	static const QDate term_begin(Ñ§ÆÚ¿ªÊ¼);
+	static const QDate term_begin(TERM_BEGIN);
 	int days = term_begin.daysTo(ui.calendarWidget->selectedDate());
 	int weeks = 1 + (days / 7);
 	int dow = 1 + (days % 7);
